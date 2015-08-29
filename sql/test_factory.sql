@@ -28,7 +28,7 @@ BEGIN
 END
 $body$;
 
-SET LOCAL ROLE test_factory__owner;
+--SET LOCAL ROLE test_factory__owner;
 
 CREATE TYPE tf.test_set AS (
 	set_name		text
