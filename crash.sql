@@ -1,7 +1,7 @@
 BEGIN;
 \i test/helpers/tap_setup.sql
 
-CREATE EXTENSION test_factory;
+CREATE EXTENSION test_factory VERSION '0.1.1';
 SET search_path=tap;
 \i test/helpers/create.sql
 
@@ -34,11 +34,13 @@ SELECT tf.register(
 );
 
 SELECT no_plan();
---SELECT * FROM tf.get( NULL::invoice, 'base' );
+SELECT * FROM tf.get( NULL::invoice, 'base' );
 SELECT results_eq(
+  --$$SELECT * FROM tf.get( NULL::customer, 'insert' )$$
   $$SELECT * FROM tf.get( NULL::invoice, 'base' )$$
   , $$VALUES( 1, 1, current_date, current_date + 30 )$$
   , 'invoice factory output'
 );
-
+/*
+*/
 
