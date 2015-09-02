@@ -34,7 +34,7 @@ SELECT tf.register(
 );
 
 SELECT no_plan();
-SELECT * FROM tf.get( NULL::invoice, 'base' );
+--SELECT * FROM tf.get( NULL::invoice, 'base' );
 SELECT results_eq(
   --$$SELECT * FROM tf.get( NULL::customer, 'insert' )$$
   $$SELECT * FROM tf.get( NULL::invoice, 'base' )$$
